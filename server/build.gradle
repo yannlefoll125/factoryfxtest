@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'factoryfxtest'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://intranet.scoop-gmbh.de/artifactory/repo'
+        credentials {
+            username = "artifactory"
+            password = "nirvokUpGov"
+        }
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile group: 'javax.xml.ws', name: 'jaxws-api', version: '2.3.0'
+    compile "org.slf4j:slf4j-api:1.8.0-beta2"
+
+    compile(group: 'io.github.factoryfx', name: 'factory', version: "1.4.5") { changing = true }
+    compile(group: 'io.github.factoryfx', name: 'jettyFactory', version: "1.4.5") { changing = true }
+}
